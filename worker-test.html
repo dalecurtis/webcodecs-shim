@@ -1,0 +1,14 @@
+<p>
+WebCodecs VideoDecoder test page. Requires running Chrome with
+--enable-blink-features=WebCodecs. Decodes 1000 frames repeatedly in a window or worker.
+</p>
+Time to first frame: <span id="sTTFF"></span><br/>
+Average frame latency: <span id="sAFL"></span><br/>
+Decoded frames: <span id="sDecoded"></span><br/>
+Decoder frames / sec: <span id="sFPS"></span><br/>
+User Agent Memory: <span id="sMem">not_implemented</span><br/>
+Status: <span id="sStatus">Okay</span><br/>
+<br/>
+<input id="bStart" type="button" value="Start" onclick="startTest()"/>
+<script src="test-code.js"></script>
+
