@@ -1,13 +1,40 @@
 <p>
 WebCodecs VideoDecoder test page. Requires running Chrome with
---enable-blink-features=WebCodecs. Decodes 1000 frames repeatedly in a window or worker.
+--enable-blink-features=WebCodecs. Decodes 5000 frames in a window or
+worker.
+<ul>
+<li>Set 'worker=true' to use a worker</li>
+<li>Set 'window=true' to use a window</li>
+<li>Set 'codec=h264|av1|vp9' to select the codec</li>
+<li>Set 'hw=deny|require' to force hardware or software codec, default is allow</li>
+<li>Set 'busy=true' to add a sine-shaped busy wait of up to 50ms on the
+main thread (make sure to keep the window in the foreground when running
+tests).</li>
+</ul>
+Sample URLs:
+<ul>
+<li>http://local/worker-test.html?window=true&hw=deny&codec=h264</li>
+<li>http://local/worker-test.html?worker=true&hw=require&codec=av1</li>
+<li>http://local/worker-test.html?window=true&hw=require&codec=vp9</li>
+<li>http://local/worker-test.html?window=true&hw=require&codec=vp9&busy=true</li>
+</ul>
 </p>
+
+<style>
+span {
+  min-width: 200px;
+}
+</style>
+
+Config: <span id="sConfig"></span><br/>
+Status: <span id="sStatus" style="color: limegreen;">Okay</span><br/>
+<br/>
 Time to first frame: <span id="sTTFF"></span><br/>
 Average frame latency: <span id="sAFL"></span><br/>
+<br/>
 Decoded frames: <span id="sDecoded"></span><br/>
+Elapsed: <span id="sElapsed"></span><br/>
 Decoder frames / sec: <span id="sFPS"></span><br/>
-User Agent Memory: <span id="sMem">not_implemented</span><br/>
-Status: <span id="sStatus">Okay</span><br/>
 <br/>
 <input id="bStart" type="button" value="Start" onclick="startTest()"/>
 <script src="test-code.js"></script>
