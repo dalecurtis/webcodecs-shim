@@ -135,8 +135,6 @@ function receiveOutput(output) {
     document.getElementById('sTTFF').innerText = elapsed + ' ms';
 
   samples.push(performance.now() - io_map[output.timestamp]);
-  if (samples.length > 25)
-    samples.shift();
   let average = samples.reduce((a, b) => a + b) / samples.length;
   document.getElementById('sAFL').innerText = average + ' ms';
   delete io_map[output.timestamp];
